@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AppSound</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<div id="app" >
+		<div class="card" 
+			v-for="(item, k) in app" 
+			:key="k"  
+			v-bind:class="{ b: item.isActive }"  
+			v-on:click="cl(k)">
+			<div class="front"><span>Front</span></div>
+			<div class="back"><span>Back</span></div>
+			<audio :src="'sound/sound' + (k + 1) + '.mp3'"></audio>
+		</div>
+
+	
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+	<div id="timer"></div>
+	<audio src="sound/sound1.mp3"></audio>
+</body>
+</html>
