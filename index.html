@@ -7,17 +7,25 @@
 </head>
 <body>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+	
 	<div id="app" >
-		<div class="card" 
+		<h1 class="titleGame">Название</h1>
+		<div 
 			v-for="(item, k) in app" 
-			:key="k"  
-			v-bind:class="{ b: item.isActive }"  
-			v-on:click="cl(k)">
-			<div class="front"><span>Front</span></div>
-			<div class="back"><span>Back</span></div>
-			<audio :src="'sound/sound' + (k + 1) + '.mp3'"></audio>
+			:key="k"
+			class="list">
+			<h1 class="title">{{ item.name }}</h1>
+			<div class="card" 
+				v-for="(item2, k2) in item.item" 
+				:key="k2"  
+				v-bind:class="{ b: item2.isActive }"  
+				v-on:click="cl(k, k2)">
+				<div class="front" :style="{background : 'url(img/front'+(k2 + 1)+'.jpg)', backgroundSize: 'cover'}"></div>
+				<div class="back"></div>
+				<audio :src="'sound/' + item.name + '/sound' + (k + 1) + '.mp3'"></audio>
+			</div>
 		</div>
+		
 
 	
 	</div>

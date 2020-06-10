@@ -1,3 +1,7 @@
+@font-face {
+    font-family: SourceSansPro; /* Имя шрифта */
+    src: url(font/SourceSansPro-Regular.ttf); /* Путь к файлу со шрифтом */
+   }
 body {
   font-family: sans-serif;
   height: 100vh;
@@ -7,13 +11,16 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
+  background: url(img/background.jpg);
 }
 .card {
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   position: relative;
   perspective: 1000px;
   cursor: default;
+  margin: 15px;
+  box-shadow: 0 0 8px 6px #fff;
 }
 .front, .back {
   position: absolute;
@@ -29,10 +36,11 @@ body {
   border-radius: 10px;
 }
 .front {
-  background-color: #ccc;
+  background-size: cover;
 }
 .back {
-  background-color: #BDBDBD;
+  background: url(img/back.jpg);
+  background-size: cover;
   transform: rotateY(180deg);
 }
 .card.b .front {transform: rotateY(180deg);}
@@ -40,14 +48,26 @@ body {
 
 
 #app{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-  width: 700px;
-  height: 700px;
+
 }
+.list{
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+
+}
+.title{
+  margin-right: 40px;
+  font-family: SourceSansPro;
+}
+.titleGame{
+  text-align: center;
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-family: SourceSansPro;
+}
+
 @keyframes load { from { width: 100%; } to { width: 0; }  }
 #timer{
   position: absolute;
